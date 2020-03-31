@@ -11,18 +11,15 @@
       <div class="container">
         <button class="btn btn-primary mb-3" @click="mostrar = !mostrar">Alternar</button>
 
-        <transition
-          @before-enter="beforeEnter"
-          @enter="enter"
-          @after-enter="afterEnter"
-          @enter-cancelled="enterCancelled"
-          @before-leave="beforeLeave"
-          @leave="leave"
-          @after-leave="afterLeave"
-          @leave-cancelled="leaveCancelled"
+        <div class="form-group">
+          <select class="form-control" v-model="animacaoSelecionada">
+            <option value="fade">Fade</option>
+            <option value="zoom">Zoom</option>
+            <option value="slide">Slide</option>
+          </select>
+        </div>
 
-          css="false"
-        >
+        <transition :name="animacaoSelecionada">
           <div class="alert alert-primary" v-if="mostrar">
             Animações no Vue
           </div>
@@ -36,35 +33,8 @@
 export default {
   data(){
     return {
-      mostrar: true
-    }
-  },
-  methods: {
-    beforeEnter(el) {
-      console.log('beforeEnter')
-    },
-    enter(el, done) {
-      console.log('enter')
-      done()
-    },
-    afterEnter(el){
-      console.log('afterEnter')
-    },
-    enterCancelled(el){
-      console.log('enterCancelled')
-    },
-    beforeLeave(el){
-      console.log('beforeLeave')
-    },
-    leave(el, done){
-      console.log('leave')
-      done()
-    },
-    afterLeave(el){
-      console.log('afterLeave')
-    },
-    leaveCancelled(el){
-      console.log('leaveCancelled')
+      mostrar: true,
+      animacaoSelecionada: 'fade'
     }
   }
 }
