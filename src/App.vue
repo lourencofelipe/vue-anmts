@@ -31,25 +31,18 @@ export default {
 }
 </script>
 <style scoped>
-  .slide-enter {
-
+  .slide-enter, .slide-leave-to {
+    opacity: 0;
   }
   .slide-enter-active {
     animation: slide 0.7s;
-  }
-  .slide-enter-to {
-
-  }
-  .slide-leave {
-
+    transition: opacity 0.7s;
   }
   .slide-leave-active {
     animation: slide 0.7s reverse;
+    transition: opacity 0.7s;
   }
-  .slide-leave-to {
-
-  }
-
+  
   @keyframes slide {
     0% {
       transform: translateX(-100px);
