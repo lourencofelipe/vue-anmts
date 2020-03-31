@@ -11,7 +11,7 @@
       <div class="container">
         <button class="btn btn-primary mb-3" @click="mostrar = !mostrar">Alternar</button>
 
-        <transition>
+        <transition name="fade">
           <div class="alert alert-primary" v-if="mostrar">
             Animações no Vue
           </div>
