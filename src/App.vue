@@ -33,24 +33,13 @@ export default {
 <style scoped>
   
   /* Entrada */
-  .v-enter {
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
-  .v-enter-active {
+  .fade-enter-active, .fade-leave-active  {
     transition: opacity 1s;
   }
-  .v-enter-to{
+  .fade-enter-to, .fade-leave {
     opacity: 1;
   }
-  /* Saída */
-  .v-leave {
-    opacity: 1;
-  }
-  .v-leave-active {
-    transition: opacity 1s;
-  }
-  .v-leave-to{
-    opacity: 0;
-  }
-
 </style>
