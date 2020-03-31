@@ -20,8 +20,11 @@
         </div>
 
         <transition :name="animacaoSelecionada">
-          <div class="alert alert-primary" v-if="mostrar">
-            Animações no Vue
+          <div class="alert alert-primary" v-if="mostrar" key="informacao">
+            Animações no Vue (informação)
+          </div>
+          <div class="alert alert-success" v-else key="sucesso">
+            Animações no Vue (success)
           </div>
         </transition>
       </div>
