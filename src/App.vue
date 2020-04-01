@@ -21,18 +21,15 @@
         </div>
 
         <div class="form-group">
-          <label>Mensagem:</label>
-          <select class="form-control" v-model="animacaoSelecionada">
-            <option value="fade">Fade</option>
-            <option value="zoom">Zoom</option>
-            <option value="slide">Slide</option>
+          <label>Componente:</label>
+          <select class="form-control" v-model="componenteSelecionado">
+            <option value="AppHome">Home</option>
+            <option value="AppSobre">Sobre</option>
           </select>
         </div>
 
         <transition :name="animacaoSelecionada" mode="out-in">
-          <div :class="classeDeAlerta" :key="alertaAtual">
-            Animações no Vue
-          </div>
+          <component :is="componenteSelecionado"></component>
         </transition>
       </div>
 
@@ -40,12 +37,18 @@
 </template>
 
 <script>
+
 export default {
+  components: {
+    AppHome: () => import('./components/Home.vue'),
+    AppSobre: () => import('./components/Sobre.vue')
+  },
   data(){
     return {
       mostrar: true,
       animacaoSelecionada: 'fade',
-      alertaAtual: 'info'
+      alertaAtual: 'info',
+      componenteSelecionado: 'AppHome'
     }
   },
   computed: {
